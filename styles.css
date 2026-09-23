@@ -393,7 +393,7 @@ p{ margin:0; }
 .formatos-intro__text .section__intro{ margin-bottom: var(--s-4); }
 .formatos-intro__text .section__intro:last-child{ margin-bottom: 0; }
 .formatos-intro__photo{
-  max-width: 320px;
+  max-width: 220px;
   margin: 0 auto;
   border-radius: var(--radius);
   overflow: hidden;
@@ -784,7 +784,7 @@ p{ margin:0; }
   .final__actions{ flex-wrap: nowrap; }
   .ecosystem__grid{ grid-template-columns: repeat(2, 1fr); }
   .formatos-intro{ grid-template-columns: 3fr 2fr; }
-  .formatos-intro__photo{ max-width: none; }
+  .formatos-intro__photo{ max-width: 260px; }
 
   .project-hero-row{ grid-template-columns: 7fr 3fr; align-items: stretch; }
   .project-hero-row__main{ aspect-ratio: auto; height: 100%; }

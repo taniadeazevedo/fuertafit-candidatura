@@ -67,22 +67,6 @@
       <div class="hero__actions" data-reveal>
         <a href="#proyectos" class="btn btn--green btn--lg"><span class="btn__label">Ver lo que hago ↓</span></a>
       </div>
-
-      <div class="hero__stats" data-reveal>
-        <div class="stat">
-          <span class="stat__num" data-counter="7">0</span><span class="text-gold">+</span>
-          <span class="stat__label">años</span>
-        </div>
-        <div class="stat__divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat__num">Bilbao</span>
-          <span class="stat__label">España</span>
-        </div>
-        <div class="stat__divider" aria-hidden="true"></div>
-        <div class="stat stat--tags">
-          <span class="stat__tagline">Diseño · Digital<br>Social · Web</span>
-        </div>
-      </div>
     </div>
 
     <div class="ticker" aria-hidden="true">
@@ -273,13 +257,22 @@
       <h2 class="h2 h2--light" data-reveal>Y te cuento quién soy.</h2>
 
       <div class="video-frame" data-reveal>
-        <video class="video-frame__player" controls preload="metadata" poster="assets/video/poster.jpg">
+        <video class="video-frame__player" preload="metadata" poster="assets/video/poster.jpg" playsinline>
           <source src="assets/video/tania-candidatura.mp4" type="video/mp4">
         </video>
+        <div class="video-frame__gradient" aria-hidden="true"></div>
+        <button class="video-frame__play" aria-label="Reproducir vídeo de candidatura">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 13L0.75 25.2583L0.75 0.741689L21 13Z" fill="currentColor"/>
+          </svg>
+        </button>
+        <a class="video-frame__download" href="assets/video/tania-candidatura.mp4" download aria-label="Descargar vídeo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3V16M12 16L7 11M12 16L17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 18V19C4 20.1046 4.89543 21 6 21H18C19.1046 21 20 20.1046 20 19V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
-
-      <p class="video-caption" data-reveal>Tania de Azevedo Ribeiro<br>Diseñadora gráfica · Bilbao</p>
-      <p class="video-mark" data-reveal>Todo suma.</p>
     </div>
   </section>
 

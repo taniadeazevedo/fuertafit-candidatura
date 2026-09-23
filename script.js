@@ -55,36 +55,6 @@ const revealObserver = new IntersectionObserver(
 );
 revealEls.forEach((el) => revealObserver.observe(el));
 
-// ===== Contador animado (stat del hero) =====
-const counterEl = document.querySelector('[data-counter]');
-if (counterEl) {
-  const target = parseInt(counterEl.dataset.counter, 10);
-  let started = false;
-
-  const animateCounter = () => {
-    const duration = 1200;
-    const start = performance.now();
-    const step = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      counterEl.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !started) {
-        started = true;
-        animateCounter();
-        counterObserver.disconnect();
-      }
-    });
-  });
-  counterObserver.observe(counterEl);
-}
-
 // ===== Carrusel de proyecto (mockups) =====
 document.querySelectorAll('.project-carousel').forEach((carousel) => {
   const viewport = carousel.querySelector('.project-carousel__viewport');
@@ -156,5 +126,25 @@ if (lightbox) {
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
+}
+
+// ===== Vídeo de candidatura: botón de play personalizado =====
+const videoFrame = document.querySelector('.video-frame');
+if (videoFrame) {
+  const video = videoFrame.querySelector('.video-frame__player');
+  const playBtn = videoFrame.querySelector('.video-frame__play');
+
+  playBtn?.addEventListener('click', () => {
+    video.controls = true;
+    video.play();
+    videoFrame.classList.add('is-playing');
+  });
+
+  video.addEventListener('pause', () => {
+    if (video.currentTime > 0 && !video.ended) videoFrame.classList.remove('is-playing');
+  });
+  video.addEventListener('play', () => {
+    videoFrame.classList.add('is-playing');
   });
 }

@@ -568,21 +568,6 @@ p{ margin:0; }
   color: var(--ink);
 }
 
-.projects-closing{
-  margin-top: var(--s-7);
-  padding-top: var(--s-6);
-  border-top: 1px solid var(--line-light);
-}
-.projects-closing__title{
-  font-size: clamp(1.4rem, 3.2vw, 2rem);
-  font-weight: 800;
-  color: var(--ink);
-  margin-bottom: var(--s-4);
-}
-.projects-closing .workflow{ margin-bottom: var(--s-4); }
-.projects-closing__lead{ font-size: 1.05rem; color: rgba(18,19,15,0.72); margin-bottom: .2em; }
-.projects-closing__emphasis{ margin-bottom: 0; }
-
 /* ===== Capacidades (mini columnas) ===== */
 .capability-cols{
   display:grid;
@@ -751,12 +736,6 @@ p{ margin:0; }
   font-size: 1.1rem;
   color: var(--white);
 }
-.final__emphasis{
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.25rem;
-}
 .final__actions{
   margin-top: var(--s-6);
   display:flex;
@@ -767,14 +746,6 @@ p{ margin:0; }
   margin-bottom: var(--s-7);
 }
 .final__signature{ margin-top: var(--s-2); }
-.final__mark{
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: 1rem;
-  letter-spacing: .1em;
-  color: var(--green);
-  margin-bottom: var(--s-2);
-}
 .final__byline{
   font-size: .8rem;
   line-height: 1.6;

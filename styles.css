@@ -697,6 +697,7 @@ p{ margin:0; }
 }
 
 /* ===== Video ===== */
+.video-header{ text-align:center; }
 .video-frame{
   position: relative;
   max-width: 720px;

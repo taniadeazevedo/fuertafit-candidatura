@@ -6,8 +6,8 @@
   /* Color */
   --bg:        #0B0C0E;
   --bg-alt:    #16181C;
-  --paper:     #F5F1E8;
-  --paper-alt: #ECE6D8;
+  --paper:     #FFFFFF;
+  --paper-alt: #F0F0F0;
   --ink:       #12130F;
   --white:     #FFFFFF;
   --green:     #33D28A;
@@ -420,30 +420,54 @@ p{ margin:0; }
 .ecosystem__grid{
   display:grid;
   grid-template-columns: 1fr;
-  gap: var(--s-3);
+  gap: var(--s-4);
   text-align:left;
 }
 .ecosystem__item{
-  padding: var(--s-4);
-  border: 1px solid var(--line-dark);
-  border-top: 3px solid var(--green);
-  border-radius: var(--radius);
-  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line-light);
+  border-radius: 16px;
+  border-bottom-right-radius: 40px;
+  transition: transform .3s var(--ease);
 }
-.ecosystem__item h3{
+.ecosystem__item:hover{ transform: translateY(-4px); }
+.ecosystem__item-body{ padding: var(--s-4) var(--s-4) var(--s-3); }
+.ecosystem__item-body h3{
   font-size: 1.1rem;
   font-weight: 800;
+  color: var(--ink);
   margin-bottom: .4em;
 }
-.ecosystem__item p{
+.ecosystem__item-body p{
   font-size: .85rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(18,19,15,0.6);
+}
+.ecosystem__item-ticker{ overflow: hidden; padding: .55em 0; }
+.ecosystem__item--green .ecosystem__item-ticker{ background: var(--green); }
+.ecosystem__item--gold .ecosystem__item-ticker{ background: var(--gold); }
+.ecosystem__item-ticker-track{
+  display:flex;
+  width: max-content;
+  animation: scroll-left 12s linear infinite;
+}
+.ecosystem__item-ticker-track span{
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: .74rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  padding-right: 1em;
 }
 
 /* ===== Proyectos destacados ===== */
 .ph-block{
   background:
-    repeating-linear-gradient(135deg, var(--paper-alt), var(--paper-alt) 10px, #E2DAC6 10px, #E2DAC6 20px);
+    repeating-linear-gradient(135deg, var(--paper-alt), var(--paper-alt) 10px, #E0E0E0 10px, #E0E0E0 20px);
+  border: 1px solid var(--line-light);
   display:flex;
   align-items:center;
   justify-content:center;

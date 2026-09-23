@@ -1,3 +1,21 @@
+// ===== "FORMAS" cambia de tipografía: diseño en todas sus formas, literalmente =====
+const fontCycleEls = document.querySelectorAll('[data-font-cycle]');
+if (fontCycleEls.length) {
+  const fonts = [
+    "'Sora', sans-serif",
+    "Georgia, serif",
+    "'Courier New', monospace",
+    "Impact, sans-serif",
+    "Verdana, sans-serif",
+    "'Times New Roman', serif",
+  ];
+  let fontIndex = 0;
+  setInterval(() => {
+    fontIndex = (fontIndex + 1) % fonts.length;
+    fontCycleEls.forEach((el) => { el.style.fontFamily = fonts[fontIndex]; });
+  }, 1100);
+}
+
 // ===== Nav: estado al hacer scroll =====
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);

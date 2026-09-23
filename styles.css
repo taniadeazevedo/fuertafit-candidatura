@@ -411,6 +411,25 @@ p{ margin:0; }
   overflow: hidden;
 }
 
+/* ===== Intro (texto + foto) ===== */
+.formatos-intro{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+  align-items:center;
+  margin-bottom: var(--s-6);
+}
+.formatos-intro__text .h2,
+.formatos-intro__text .section__intro{ margin-bottom: var(--s-4); }
+.formatos-intro__text .section__intro:last-child{ margin-bottom: 0; }
+.formatos-intro__photo{
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.formatos-intro__photo img{ width:100%; display:block; }
+
 /* ===== Ecosistema de formatos ===== */
 .ecosystem{ text-align:center; }
 .ecosystem__node{
@@ -767,12 +786,6 @@ p{ margin:0; }
   gap: var(--s-3);
   margin-bottom: var(--s-7);
 }
-.final__signature{ margin-top: var(--s-2); }
-.final__byline{
-  font-size: .8rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.8);
-}
 
 /* =========================================================
    FOOTER
@@ -800,6 +813,8 @@ p{ margin:0; }
 @media (min-width: 640px){
   .final__actions{ flex-wrap: nowrap; }
   .ecosystem__grid{ grid-template-columns: repeat(2, 1fr); }
+  .formatos-intro{ grid-template-columns: 3fr 2fr; }
+  .formatos-intro__photo{ max-width: none; }
 
   .project-hero-row{ grid-template-columns: 7fr 3fr; align-items: stretch; }
   .project-hero-row__main{ aspect-ratio: auto; height: 100%; }

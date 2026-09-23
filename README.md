@@ -3,19 +3,11 @@
 Landing de candidatura para la oferta de Diseñadora Gráfica en Fuertafit.
 HTML/CSS/JS plano, sin dependencias ni build step. Abre `index.html` directamente o sírvelo con cualquier servidor estático (`python3 -m http.server`).
 
-Estructura narrativa: Hero → Diseñar es adaptarse → Experiencia (Estrella Damm + LIV Golf) → Capacidades y evolución (Web + IA) → Vídeo → CTA final.
+Estructura narrativa: Hero → Diseñar es adaptarse → Experiencia (Estrella Damm + LIV Golf) → Vídeo → CTA final.
 
-## ⚠️ Antes de publicarla
+## Vídeo
 
-- **El vídeo pesa 77 MB** (`assets/video/tania-candidatura.mp4`). Está convertido y comprimido desde el `.mov` original (165 MB → 77 MB con las herramientas disponibles en este Mac), pero sigue siendo demasiado pesado para una web en producción. Antes de publicar, comprímelo más (HandBrake, o similar) o mejor aún, súbelo a YouTube/Vimeo como no listado y sustituye el `<video>` por su embed — cargará mucho más rápido para quien lo abra.
-
-## Pendiente de sustituir antes de enviarla
-
-- **CTA final → "Ver portfolio"**: el `href="#"` debe apuntar al portfolio real.
-- **CTA final → "Descargar CV"**: apunta a `assets/CV_PDF.pdf` — añadir el PDF real en `assets/`.
-- **CTA final → "Hablamos" y footer → "Email"**: `mailto:hola@tuemail.com` — sustituir por el email real de contacto.
-- **Footer → "LinkedIn"**: `href="#"` — añadir el enlace real.
-- **LIV Golf**: quedan huecos si quieres seguir ampliando la galería (`.project-masonry-flow` en `#proyectos`), aunque ya tiene 9 piezas reales (portada + 8 en galería).
+El vídeo de candidatura se reproduce como embed de YouTube (no listado) sobre un poster y controles personalizados (`#video` en `index.html`). `assets/video/tania-candidatura.mp4` se mantiene solo como archivo descargable desde el botón de descarga del reproductor.
 
 ## Estructura de archivos
 
@@ -23,7 +15,7 @@ Estructura narrativa: Hero → Diseñar es adaptarse → Experiencia (Estrella D
 - `styles.css` — sistema de diseño (variables de color/tipografía/espaciado arriba del archivo)
 - `script.js` — nav sticky, menú móvil, reveal on scroll, contador animado, carrusel de proyecto, lightbox
 - `assets/proyectos/estrella-damm/` — fotos y mockups reales del proyecto (9 piezas)
-- `assets/proyectos/liv-golf/` — fotos y mockups reales del proyecto (9 piezas: portada + galería)
+- `assets/proyectos/liv-golf/` — fotos y mockups reales del proyecto (7 piezas: portada + galería)
 - `assets/video/` — vídeo de candidatura (`tania-candidatura.mp4`) + `poster.jpg`
 
 ## Funcionalidades

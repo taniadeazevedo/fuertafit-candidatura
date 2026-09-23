@@ -13,6 +13,8 @@
   --green:     #33D28A;
   --green-ink: #0F8F5C;
   --gold:      #FFD84D;
+  --purple:    #4832ED;
+  --eco-green: #00E8B2;
   --line-dark: rgba(255,255,255,0.12);
   --line-light:rgba(51,51,51,0.14);
 
@@ -148,8 +150,8 @@ p{ margin:0; }
 .btn--green{ background: var(--green); color: var(--ink); }
 .btn--green:hover{ box-shadow: 0 10px 28px rgba(51,210,138,.28); }
 
-.btn--gold{ background: var(--gold); color: var(--ink); }
-.btn--gold:hover{ box-shadow: 0 10px 28px rgba(255,216,77,.28); }
+.btn--purple{ background: var(--purple); color: var(--white); }
+.btn--purple:hover{ box-shadow: 0 10px 28px rgba(72,50,237,.32); }
 
 .btn--outline{ background: transparent; color: var(--white); border: 1.5px solid var(--line-dark); }
 .btn--outline:hover{ border-color: var(--white); }
@@ -436,8 +438,7 @@ p{ margin:0; }
   height: 100%;
   background: var(--white);
   border: 1px solid var(--line-light);
-  border-radius: 16px;
-  border-bottom-right-radius: 40px;
+  border-radius: 16px 0 40px 0;
   transition: transform .3s var(--ease);
 }
 .ecosystem__item:hover{ transform: translateY(-4px); }
@@ -455,8 +456,9 @@ p{ margin:0; }
   color: rgba(51,51,51,0.7);
 }
 .ecosystem__item-ticker{ overflow: hidden; padding: .55em 0; }
-.ecosystem__item--green .ecosystem__item-ticker{ background: var(--green); }
-.ecosystem__item--gold .ecosystem__item-ticker{ background: var(--gold); }
+.ecosystem__item--green .ecosystem__item-ticker{ background: var(--eco-green); }
+.ecosystem__item--purple .ecosystem__item-ticker{ background: var(--purple); }
+.ecosystem__item--purple .ecosystem__item-ticker-track span{ color: var(--white); }
 .ecosystem__item-ticker-track{
   display:flex;
   width: max-content;
@@ -707,10 +709,23 @@ p{ margin:0; }
   border: 1px solid var(--line-dark);
   background: linear-gradient(155deg, var(--bg-alt), #0B0C0E 70%);
 }
-.video-frame__player{
+.video-frame__poster{
   width: 100%;
   height: auto;
   display:block;
+}
+.video-frame__embed{
+  position:absolute;
+  inset:0;
+  display:none;
+}
+.video-frame.is-playing .video-frame__embed{ display:block; }
+.video-frame.is-playing .video-frame__poster{ visibility:hidden; }
+.video-frame__embed iframe{
+  width:100%;
+  height:100%;
+  display:block;
+  border:0;
 }
 .video-frame__gradient{
   position:absolute;

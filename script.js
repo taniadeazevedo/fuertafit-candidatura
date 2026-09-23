@@ -129,22 +129,22 @@ if (lightbox) {
   });
 }
 
-// ===== Vídeo de candidatura: botón de play personalizado =====
+// ===== Vídeo de candidatura: botón de play personalizado (embed de YouTube) =====
 const videoFrame = document.querySelector('.video-frame');
 if (videoFrame) {
-  const video = videoFrame.querySelector('.video-frame__player');
+  const youtubeId = videoFrame.dataset.youtubeId;
+  const embedContainer = videoFrame.querySelector('.video-frame__embed');
   const playBtn = videoFrame.querySelector('.video-frame__play');
 
   playBtn?.addEventListener('click', () => {
-    video.controls = true;
-    video.play();
-    videoFrame.classList.add('is-playing');
-  });
-
-  video.addEventListener('pause', () => {
-    if (video.currentTime > 0 && !video.ended) videoFrame.classList.remove('is-playing');
-  });
-  video.addEventListener('play', () => {
+    if (embedContainer && !embedContainer.querySelector('iframe')) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`;
+      iframe.title = 'Vídeo de candidatura de Tania de Azevedo';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      embedContainer.appendChild(iframe);
+    }
     videoFrame.classList.add('is-playing');
   });
 }

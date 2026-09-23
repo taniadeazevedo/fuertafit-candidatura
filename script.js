@@ -84,3 +84,44 @@ if (counterEl) {
   });
   counterObserver.observe(counterEl);
 }
+
+// ===== Carrusel de proyecto (mockups) =====
+document.querySelectorAll('.project-carousel').forEach((carousel) => {
+  const viewport = carousel.querySelector('.project-carousel__viewport');
+  const slides = Array.from(carousel.querySelectorAll('.project-carousel__slide'));
+  const prevBtn = carousel.querySelector('.project-carousel__arrow--prev');
+  const nextBtn = carousel.querySelector('.project-carousel__arrow--next');
+  const dots = Array.from(carousel.querySelectorAll('.project-carousel__dot'));
+  if (!viewport || slides.length === 0) return;
+
+  const currentIndex = () => Math.round(viewport.scrollLeft / viewport.clientWidth);
+
+  const goTo = (index) => {
+    const clamped = Math.max(0, Math.min(slides.length - 1, index));
+    viewport.scrollTo({ left: clamped * viewport.clientWidth, behavior: 'smooth' });
+  };
+
+  const updateUI = () => {
+    const idx = currentIndex();
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === idx));
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === slides.length - 1;
+  };
+
+  prevBtn?.addEventListener('click', () => goTo(currentIndex() - 1));
+  nextBtn?.addEventListener('click', () => goTo(currentIndex() + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  let scrollTimer;
+  viewport.addEventListener(
+    'scroll',
+    () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(updateUI, 80);
+    },
+    { passive: true }
+  );
+
+  window.addEventListener('resize', updateUI);
+  requestAnimationFrame(updateUI);
+});

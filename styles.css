@@ -440,10 +440,14 @@ p{ margin:0; }
   grid-template-columns: 1fr;
   gap: var(--s-4);
   text-align:left;
+  align-items: stretch;
 }
 .ecosystem__item{
   position: relative;
   overflow: hidden;
+  display:flex;
+  flex-direction: column;
+  height: 100%;
   background: var(--white);
   border: 1px solid var(--line-light);
   border-radius: 16px;
@@ -452,6 +456,7 @@ p{ margin:0; }
 }
 .ecosystem__item:hover{ transform: translateY(-4px); }
 .ecosystem__item-body{ padding: var(--s-4) var(--s-4) var(--s-3); }
+.ecosystem__item-ticker{ margin-top: auto; }
 .ecosystem__item-body h3{
   font-size: 1.1rem;
   font-weight: 800;

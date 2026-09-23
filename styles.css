@@ -597,8 +597,8 @@ p{ margin:0; }
 }
 .project-carousel__arrow:hover{ transform: translateY(-50%) scale(1.06); }
 .project-carousel__arrow:disabled{ opacity: 0; pointer-events: none; }
-.project-carousel__arrow--prev{ left: -14px; }
-.project-carousel__arrow--next{ right: -14px; }
+.project-carousel__arrow--prev{ left: 10px; }
+.project-carousel__arrow--next{ right: 10px; }
 
 .project-carousel__dots{
   display:flex;
@@ -651,33 +651,23 @@ p{ margin:0; }
 }
 .project-hero-row__carousel .project-carousel__dots{ margin-top: var(--s-2); }
 
-/* ===== Masonry ajustado en altura ===== */
-.project-masonry-fit{
+/* ===== Masonry de 3 columnas independientes (alturas naturales, sin recorte) ===== */
+.project-masonry-3col{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: var(--s-3);
   margin-bottom: var(--s-5);
+  align-items: start;
 }
-.project-masonry-fit__left{ grid-column:1; grid-row:1; }
-.project-masonry-fit__right{ grid-column:2; grid-row:1; }
-.project-masonry-fit__mid-top{ grid-column: 1 / -1; grid-row:2; }
-.project-masonry-fit__mid-bottom{ grid-column: 1 / -1; grid-row:3; }
-
-.project-masonry-fit__cell{
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--paper-alt);
+.project-masonry-3col__col{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  aspect-ratio: 3/4;
+  flex-direction: column;
+  gap: var(--s-3);
 }
-.project-masonry-fit__mid-top,
-.project-masonry-fit__mid-bottom{ aspect-ratio: 16/9; }
-.project-masonry-fit__cell img{
+.project-masonry-3col__col img{
   width:100%;
-  height:100%;
-  object-fit: cover;
+  display:block;
+  border-radius: var(--radius);
 }
 
 .projects-footnote{
@@ -915,13 +905,6 @@ p{ margin:0; }
   .project-hero-row__main{ aspect-ratio: auto; height: 100%; }
   .project-hero-row__carousel.project-carousel{ max-width: none; align-self: center; }
 
-  .project-masonry-fit{ grid-template-columns: 1fr 1fr 1fr; }
-  .project-masonry-fit__left{ grid-column:1; grid-row: 1 / span 2; }
-  .project-masonry-fit__mid-top{ grid-column:2; grid-row:1; }
-  .project-masonry-fit__mid-bottom{ grid-column:2; grid-row:2; }
-  .project-masonry-fit__right{ grid-column:3; grid-row: 1 / span 2; }
-  .project-masonry-fit__left,
-  .project-masonry-fit__right{ aspect-ratio: auto; }
 }
 
 @media (min-width: 860px){

@@ -821,6 +821,16 @@ p{ margin:0; }
   color: var(--white);
   font-weight: 600;
 }
+.video-mark{
+  text-align:center;
+  margin-top: var(--s-2);
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
 
 /* ===== Workflow (IA) ===== */
 .workflow{
@@ -931,3 +941,48 @@ p{ margin:0; }
   .capability-cols{ grid-template-columns: repeat(3, 1fr); }
   .project-carousel{ max-width: 340px; }
 }
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+img[data-lightbox]{ cursor: zoom-in; transition: opacity .2s ease; }
+img[data-lightbox]:hover{ opacity: .92; }
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: var(--s-5);
+  background: rgba(11,12,14,0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease;
+}
+.lightbox.is-open{ opacity: 1; visibility: visible; }
+.lightbox__img{
+  max-width: 90vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.lightbox__close{
+  position: absolute;
+  top: var(--s-4);
+  right: var(--s-4);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 1.8rem;
+  line-height: 1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: background .2s ease;
+}
+.lightbox__close:hover{ background: rgba(255,255,255,0.2); }

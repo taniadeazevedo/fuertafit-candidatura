@@ -125,3 +125,36 @@ document.querySelectorAll('.project-carousel').forEach((carousel) => {
   window.addEventListener('resize', updateUI);
   requestAnimationFrame(updateUI);
 });
+
+// ===== Lightbox de imágenes de proyecto =====
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lightboxImg = lightbox.querySelector('.lightbox__img');
+  const closeBtn = lightbox.querySelector('.lightbox__close');
+
+  const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('img[data-lightbox]').forEach((img) => {
+    img.addEventListener('click', () => openLightbox(img.currentSrc || img.src, img.alt));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
+}

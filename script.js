@@ -1,18 +1,26 @@
-// ===== "FORMAS" cambia de tipografía: diseño en todas sus formas, literalmente =====
+// ===== "EN TODAS SUS FORMAS" cambia de tipografía: diseño en todas sus formas, literalmente =====
 const fontCycleEls = document.querySelectorAll('[data-font-cycle]');
 if (fontCycleEls.length) {
-  const fonts = [
-    "'Sora', sans-serif",
-    "Georgia, serif",
-    "'Courier New', monospace",
-    "Impact, sans-serif",
-    "Verdana, sans-serif",
-    "'Times New Roman', serif",
+  const styles = [
+    { fontFamily: "'Sora', sans-serif", fontWeight: 800, fontStyle: 'normal', letterSpacing: '-0.02em' },
+    { fontFamily: "Georgia, serif", fontWeight: 700, fontStyle: 'italic', letterSpacing: 'normal' },
+    { fontFamily: "'Courier New', monospace", fontWeight: 700, fontStyle: 'normal', letterSpacing: '0.06em' },
+    { fontFamily: "Impact, sans-serif", fontWeight: 400, fontStyle: 'normal', letterSpacing: '0.03em' },
+    { fontFamily: "Verdana, sans-serif", fontWeight: 700, fontStyle: 'normal', letterSpacing: '-0.01em' },
+    { fontFamily: "'Times New Roman', serif", fontWeight: 700, fontStyle: 'italic', letterSpacing: 'normal' },
   ];
-  let fontIndex = 0;
+  let styleIndex = 0;
   setInterval(() => {
-    fontIndex = (fontIndex + 1) % fonts.length;
-    fontCycleEls.forEach((el) => { el.style.fontFamily = fonts[fontIndex]; });
+    styleIndex = (styleIndex + 1) % styles.length;
+    const next = styles[styleIndex];
+    fontCycleEls.forEach((el) => {
+      el.style.fontFamily = next.fontFamily;
+      el.style.fontWeight = next.fontWeight;
+      el.style.fontStyle = next.fontStyle;
+      el.style.letterSpacing = next.letterSpacing;
+      el.classList.add('is-flip');
+      setTimeout(() => el.classList.remove('is-flip'), 150);
+    });
   }, 1100);
 }
 

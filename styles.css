@@ -315,8 +315,9 @@ p{ margin:0; }
   letter-spacing: -0.015em;
   margin: var(--s-2) 0 var(--s-3);
 }
-.hero__title-sub{ font-size: .78em; }
-.font-cycle{ display:inline-block; }
+.hero__title-sub{ font-size: .6em; }
+.font-cycle{ display:inline-block; transition: transform .15s ease; }
+.font-cycle.is-flip{ transform: scale(1.05); }
 
 .hero__sub{
   font-family: var(--f-display);
@@ -335,35 +336,12 @@ p{ margin:0; }
 
 .hero__actions{ margin-bottom: var(--s-7); }
 
-.ticker{
-  margin-top: var(--s-8);
-  border-top: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
-  overflow: hidden;
-  padding: var(--s-3) 0;
-  position: relative;
-  z-index: 1;
-}
-.ticker__track{
-  display:flex;
-  width: max-content;
-  animation: scroll-left 26s linear infinite;
-}
-.ticker__track span{
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: .02em;
-  color: var(--green);
-  white-space: nowrap;
-  padding-right: 0;
-}
 @keyframes scroll-left{
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce){
-  .ticker__track, .plus{ animation: none; }
+  .plus{ animation: none; }
 }
 
 /* =========================================================

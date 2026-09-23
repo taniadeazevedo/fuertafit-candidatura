@@ -641,19 +641,21 @@ p{ margin:0; }
 .project-hero-row__carousel .project-carousel__dots{ margin-top: var(--s-2); }
 
 /* ===== Masonry de 3 columnas independientes (alturas naturales, sin recorte) ===== */
+/* Móvil: una foto a la vez, deslizando */
 .project-masonry-3col{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   gap: var(--s-3);
   margin-bottom: var(--s-5);
   align-items: start;
 }
-.project-masonry-3col__col{
-  display:flex;
-  flex-direction: column;
-  gap: var(--s-3);
-}
-.project-masonry-3col__col img{
+.project-masonry-3col::-webkit-scrollbar{ display:none; }
+.project-masonry-3col__col{ display:contents; }
+.project-masonry-3col img{
+  flex: 0 0 100%;
+  scroll-snap-align: center;
   width:100%;
   display:block;
   border-radius: var(--radius);
@@ -662,13 +664,19 @@ p{ margin:0; }
 /* ===== Masonry de flujo libre (galería sin composición fija) ===== */
 .project-masonry-flow{
   margin-bottom: var(--s-4);
-  columns: 2;
-  column-gap: var(--s-3);
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: var(--s-3);
 }
+.project-masonry-flow::-webkit-scrollbar{ display:none; }
 .project-masonry-flow img{
+  flex: 0 0 100%;
+  scroll-snap-align: center;
   width:100%;
   display:block;
-  margin-bottom: var(--s-3);
+  margin-bottom: 0;
   border-radius: var(--radius);
   break-inside: avoid;
 }
@@ -784,7 +792,25 @@ p{ margin:0; }
   .project-hero-row__main{ aspect-ratio: auto; height: 100%; }
   .project-hero-row__carousel.project-carousel{ max-width: none; align-self: center; }
 
-  .project-masonry-flow{ columns: 3; }
+  .project-masonry-3col{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+  .project-masonry-3col__col{
+    display:flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .project-masonry-flow{
+    display:block;
+    columns: 3;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+  .project-masonry-flow img{ margin-bottom: var(--s-3); }
 }
 
 @media (min-width: 860px){
